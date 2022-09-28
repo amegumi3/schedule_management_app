@@ -1,0 +1,52 @@
+<h2>スケジュール一覧</h2>
+
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<div class= table_box>
+  <ul class= "order">
+    <li><%= link_to "新しく更新した順", posts_path(latest: "true"),class: "link menu"%></li>
+    <li><%= link_to "更新が古い順", posts_path(old: "true"),class: "link menu" %></li>
+    <li><%= link_to "開始日が早い順", posts_path(start: "true"), class: "link menu" %></li>
+  </ul>
+  <div class= "table_box">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>終日</th>
+        <th>更新日時</th>
+        <th>確認</th>
+        <th>編集</th>
+        <th>削除</th>
+      </tr>
+    </thead>
+    <% @posts.each do |post| %>
+      <tbody>
+        <tr>
+        <td><%= post.id %></td>
+        <td><%= post.title %></td>
+        <td><%= post.start_date.to_s(:date_jp) %></td>
+        <td><%= post.end_date.to_s(:date_jp) %></td>
+        <% if post.all_day == true %>
+         <td>◯</td>
+        <% else %>
+          <td> </td> 
+        <% end %> 
+        <td><%= post.updated_at.to_s(:datetime_jp) %></td>
+        <td><%= link_to "確認",post_path(post.id), class: "link" %></td>
+        <td><%= link_to "編集",edit_post_path(post.id), class: "link" %></td>
+        <td><%= link_to "削除", post, data: {turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}, class: "link" %></td>
+        </tr>
+      </tbody>
+    <% end %>
+    </table>
+  </div>
+</div>
+
+<%= link_to "スケジュールを新規登録", new_post_path, class: "link guide" %>
+

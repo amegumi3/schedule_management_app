@@ -1,0 +1,38 @@
+<h2>スケジュール詳細</h2>
+
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<div class= "table_wrapper">
+<table>
+<tbody>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @post.title %></td>
+  </tr>
+  <tr>
+    <th>開始日</th>
+    <td><%= @post.start_date.to_s(:date_jp) %></td>
+  </tr>  
+  <tr>
+    <th>終了日</th>
+    <td><%= @post.end_date.to_s(:date_jp) %></td>
+  </tr>
+  <tr>
+    <th>終日</th>
+    <% if @post.all_day == true %>
+     <td>◯</td>
+    <% else %>
+      <td> </td> 
+    <% end %> 
+  </tr>  
+    <th>スケジュールメモ</th>
+    <td><%= @post.contents %></td>
+  </tr>
+</table>
+</div>
+<div>
+<%= link_to "一覧に戻る", posts_path, class: "link guide" %>
+
+</div>
