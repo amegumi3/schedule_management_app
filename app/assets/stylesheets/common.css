@@ -1,0 +1,70 @@
+
+body {
+  box-sizing: border-box;
+}
+h2 {
+  margin-left: 20px;
+  font-size: 30px;
+}
+.link {
+  color: 
+  #3c3c3c;
+}
+table {
+  margin-bottom: 30px;
+
+}
+table th {
+  background-color: #b4dbc0;
+  padding: 20px 10px;
+  color: #3c3c3c;
+}
+table td {
+  background-color: #b4dbc093;
+  padding: 20px 10px 20px 10px;
+  color: #3c3c3c;
+  text-align: center;  
+}
+.submit {
+  margin-bottom: 15px;
+
+}
+.guide {
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 20px;
+}
+header h1 {
+  background-color: #af473c;
+  padding: 20px;
+  color: white;
+}
+footer {
+  background-color: #b56357;
+  color: white;
+  padding: 10px;
+  margin-top:30px;
+}
+/* 一覧ページ */
+
+.order {
+  list-style: none;
+  display: flex;
+  justify-content: end;
+}
+.order li {
+  margin: 3px 10px;
+}
+.menu {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.table_wrapper {
+  display:flex;
+  justify-content: center;
+}
+.table_box {
+  display: flex;
+  flex-direction: column;
+}
